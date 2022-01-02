@@ -1,0 +1,135 @@
+﻿.hat-cek {
+    border: 1px solid #eae4e4;
+}
+
+
+.alt-hat {
+    padding-bottom: 10px;
+    border-bottom: 4px solid #e3dcdc;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.reserve-place-1 {
+    width: 10%;
+}
+
+.reserve-place-2 {
+    width: 20%;
+}
+
+.reserve-place-3 {
+    width: 30%;
+}
+
+.reserve-place-4 {
+    width: 40%;
+}
+
+.reserve-place-5 {
+    width: 50%;
+}
+
+.reserve-place-6 {
+    width: 60%;
+}
+
+.reserve-place-7 {
+    width: 70%;
+}
+
+.none-underline:hover {
+    text-decoration: none;
+}
+
+.link-default {
+    color: #9d9494;
+    font-weight: bolder;
+}
+
+    .link-default:hover {
+        color: #4a4646;
+        font-weight: bolder;
+    }
+
+.link-primary {
+    color: #196185;
+}
+
+.price {
+    font-weight: bolder;
+}
+
+.bi-heart {
+    font-size: 30px;
+    color: #b6acac;
+}
+
+    .bi-heart:hover {
+        font-size: 30px;
+        color: #383431;
+    }
+
+.bi-trash {
+    font-size: 30px;
+    color: #b6acac;
+}
+
+    .bi-trash:hover {
+        font-size: 30px;
+        color: #383431;
+    }
+
+small.wish-cart {
+    font-size: 15px;
+    color: black;
+}
+
+a.positive {
+    width: 40px;
+    border: 2px solid white;
+    font-size: 30px;
+    color: #383431;
+}
+
+    a.positive:hover {
+        border: 2px solid white;
+        font-size: 30px;
+        font-weight: bolder;
+        cursor: pointer;
+        color: #383431;
+    }
+
+input.quantity {
+    width: 40px;
+    color: black;
+    border: 2px solid #8b8484;
+}
+
+button.btn-cart {
+    border: 3px solid red;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bolder;
+    color: black;
+    text-align: center;
+}
+
+    button.btn-cart:hover {
+        background-color: red;
+        color: white;
+        transition: 1s;
+    }
+
+.total-price h6 {
+    color: red;
+    text-decoration: line-through;
+}
+
+.discount-price h6 {
+    color: forestgreen;
+}
+
+.shipping-price h6 {
+    color: blue;
+}

@@ -1,0 +1,74 @@
+﻿@model CreateProductViewModel
+@{
+    ViewData["Title"] = "Insert";
+    Layout = "~/Areas/Admin/Views/Shared/_YöneticiLayout.cshtml";
+}
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3>Blog <span>/ Add</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="add-edit-product-wrap col-12">
+        <div class="add-edit-product-form">
+            <form asp-controller="Product" asp-action="Insert" method="post" enctype="multipart/form-data">
+                <h4 class="title">About Product</h4>
+                <div class="row">
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input asp-for="ProductName" class="form-control" type="text" placeholder="ProductName *">
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input asp-for="Description" class="form-control" type="text" placeholder="Description *">
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input asp-for="WithoutDiscountPrice" class="form-control" type="text" placeholder="WithoutDiscountPrice *">
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input asp-for="DiscountPrice" class="form-control" type="text" placeholder="DiscountPrice *">
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input asp-for="Rate" class="form-control" type="text" placeholder="Rate *">
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
+                            <option>Please select Category..</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <select asp-for="BrandId" asp-items="@ViewBag.Brands" class="form-control">
+                            <option>Please select Brand..</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                        <button class="button button-outline button-primary mb-10 ml-10 mr-0">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script src="~/admin/assets/js/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="~/admin/assets/js/plugins/summernote/summernote.active.js"></script>
+    <script src="~/admin/assets/js/plugins/quill/quill.min.js"></script>
+    <script src="~/admin/assets/js/plugins/quill/quill.active.js"></script>
+}

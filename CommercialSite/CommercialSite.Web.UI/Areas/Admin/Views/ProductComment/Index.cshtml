@@ -1,0 +1,66 @@
+﻿@model List<ProductCommentViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_YöneticiLayout.cshtml";
+}
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">List <span>/ ProductComments</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+                    <a asp-controller="ProductComment" asp-action="Insert" class="btn btn-primary">Yeni Kayıt</a>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                <th>Comment</th>
+                                <th>Rate</th>
+                                <th>Product Name</th>
+                                <th>Status</th>
+                                <th>####</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (ProductCommentViewModel item in Model)
+                            {
+                            <tr>
+                                @if (item.Comment.Length > 100)
+                                {
+                                    <td>@item.Comment.Substring(0, 100)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Comment</td>
+                                }
+                                <td>@item.Rate</td>
+                                <td><partial name="PartialViews/_StatusPartial" model="item.Status" /></td>
+                                <td>
+                                    <a asp-controller="ProductComment" asp-action="Activate" asp-route-id="@item.Id" class="btn">Activate</a>
+                                    <a asp-controller="ProductComment" asp-action="Update" asp-route-id="@item.Id" class="btn">Update</a>
+                                    <a asp-controller="ProductComment" asp-action="Delete" asp-route-id="@item.Id" class="btn">Delete</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/admin/assets/js/plugins/datatables/datatables.min.js"></script>
+    <script src="~/admin/assets/js/plugins/datatables/datatables.active.js"></script>
+}
+

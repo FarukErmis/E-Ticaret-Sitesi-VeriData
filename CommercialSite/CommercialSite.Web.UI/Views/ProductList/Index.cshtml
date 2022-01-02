@@ -1,0 +1,247 @@
+﻿@model List<ProductViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/my-css/ProductList.css" rel="stylesheet" />
+<script src="~/Content/jquery/jquery.js"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-1 col-lg-2">
+            @*<div class="card-body">
+                <h4 class="title">Seçili Filtreler</h4>
+                <button class="btn btn-outline-danger">Resetle</button>
+            </div>
+            @if (Request.QueryString.Count > 0)
+            {
+                <ul class="list-group filter">
+                    @foreach (var item in Request.QueryString.AllKeys)
+                    {
+                        {
+                            if (Request.QueryString.Count == 1)
+                            {
+                                <li class="list-group-item"><a href="@Request.Url.LocalPath">@Request.QueryString[$"{item}"]</a></li>
+                            }
+                            else if (Request.QueryString.AllKeys[0] == item)
+                            {
+                                var ad = Request.Url.ToString().Replace($"{@item}={@Request.QueryString[$"{item}"]}&", "");
+                                <li class="list-group-item"><a href="@ad">@Request.QueryString[$"{item}"]</a></li>
+                            }
+                            else
+                            {
+                                var ad = Request.Url.ToString().Replace($"&{@item}={@Request.QueryString[$"{item}"]}", "");
+                                <li class="list-group-item"><a href="@ad">@Request.QueryString[$"{item}"]</a></li>
+                            }
+                        }
+                    }
+                </ul>
+            }
+            @{
+                var keys = Model.Select(x => x.ProductProperties.Select(y => y.VarKey).ToList()).ToList();
+
+                List<string> eachkey = new List<string>();
+
+
+                foreach (var item in keys)
+                {
+                    for (int i = 0; i < item.Count(); i++)
+                    {
+                        if (!eachkey.Contains(item[i]))
+                        {
+                            eachkey.Add(item[i]);
+                        }
+                    }
+                }
+
+                for (int i = 0; i < eachkey.Count(); i++)
+                {
+                    List<string> eachvalue = new List<string>();
+                    var values = Model.Select(x => x.ProductProperties.Where(y => y.VarKey == eachkey[i]).Select(z => z.VarValue).ToList()).ToList();
+                    for (int z = 0; z < values.Count(); z++)
+                    {
+                        if (values[z].Count > 0 && !eachvalue.Contains(values[z][0]))
+                        {
+                            eachvalue.Add(values[z][0]);
+                        }
+                    }
+
+                    if (!Request.Url.ToString().Contains($"{eachkey[i].Replace(" ", "")}") || eachvalue.Count() != 1)
+                    {
+                        <div class="card-group">
+                            <div class="card">
+                                <div class="card-header" id="brandTitle">
+                                    <h4 class="card-title">
+                                        <a data-toggle="collapse" href="#">@eachkey[i]</a>
+                                    </h4>
+                                </div>
+                                <div id="@eachkey[i].Replace(" ", "")" class="collapse card-product-list show">
+                                    <ul class="list-group">
+
+                                        @for (int z = 0; z < eachvalue.Count(); z++)
+                                        {
+
+                                            if (Request.QueryString.AllKeys.Count() > 0)
+                                            {
+                                                if (!Request.Url.ToString().Contains($"{eachkey[i].Replace(" ", "")}={@eachvalue[z].Replace(" ", "")}"))
+                                                {
+                                                    <li class="list-group-item"><a href="@Request.Url.LocalPath@Request.Url.Query&@eachkey[i].Replace(" ", "")=@eachvalue[z].Replace(" ", "")"><input class="float-right" type="checkbox" name="Columfilter1" value="checked" /><span class="float-left">@eachvalue[z]</span></a></li>
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                <li class="list-group-item"><a href="@Request.Url.LocalPath@Request.Url.Query?@eachkey[i].Replace(" ", "")=@eachvalue[z].Replace(" ", "")"><input class="float-right" type="checkbox" name="Columfilter1" value="checked" /><span class="float-left">@eachvalue[z]</span></a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }*@
+        </div>
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        @foreach (ProductViewModel item in Model)
+                        {
+                            <div class="col-md-4">
+                                <figure class="card card-product-grid card-lg" style="width:300px;">
+                                    <div id="@Url.Content($"demo{item.Id}")" class="carousel slide" data-ride="carousel">
+
+                                        <!-- Indicators -->
+                                        <ul class="carousel-indicators" id="data-slide">
+                                            @for (int k = 0; k < item.ProductImages.Where(x => x.ProductId == item.Id).ToList().Count(); k++)
+                                            {
+                                                if (k != 0)
+                                                {
+                                                    <li data-target="@Url.Content($"#demo{item.Id}")" data-slide-to="@k"></li>
+                                                }
+                                                else
+                                                {
+                                                    <li data-target="@Url.Content($"#demo{item.Id}")" data-slide-to="@k" class="active"></li>
+                                                }
+                                            }
+                                        </ul>
+                                        <!-- The slideshow -->
+                                        <div class="carousel-inner" id="productList">
+
+                                            @for (int k = 0; k < item.ProductImages.Where(x => x.ProductId == item.Id).ToList().Count(); k++)
+                                            {
+                                                if (k != 0)
+                                                {
+                                                    <div class="carousel-item" data-abc="true">
+                                                        <a href="@Url.Action("Index","ProductDetail",new { name = item.ProductName , id = item.Id })">
+                                                            <img src='@Url.Content($"~/Upload/ProductImages/{item.ProductImages.Select(x=> x.ImageUrl).ToList()[k]}")' alt="@Url.Content($"~/Upload/ProductImages/{item.ProductName}")" />
+                                                        </a>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="carousel-item active " data-abc="true">
+                                                        <a href="@Url.Action("Index","ProductDetail",new { name = item.ProductName, id = item.Id})">
+                                                            <img src='@Url.Content($"~/Upload/ProductImages/{item.ProductImages.Select(x=> x.ImageUrl).ToList()[k]}")' alt="@Url.Content($"~/Upload/ProductImages/{item.ProductName}")" />
+                                                        </a>
+                                                    </div>
+                                                }
+
+                                            }
+                                        </div>
+                                    </div>
+                                    <figcaption class="info-wrap">
+                                        <div class="row">
+                                            @if (item.ProductName.Length < 20)
+                                            {
+                                                <div class="col-md-7" id="productTitle"> <a href="@Url.Action("Index","ProductDetail",new { id = item.Id })" class="title" data-abc="true">@item.ProductName ...</a> </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-md-7" id="productTitle"> <a href="@Url.Action("Index","ProductDetail",new { id = item.Id })" class="title" data-abc="true">@item.ProductName.Substring(0, 20) ...</a> </div>
+                                            }
+                                            <div class="col-md-5">
+                                                <div class="rating text-right" id="productRate">
+                                                    @for (int i = 0; i < 5; i++)
+                                                    {
+                                                        if (item.Rate > i + 0.5)
+                                                        {
+                                                            <i class="bi bi-star-fill"></i>
+                                                        }
+                                                        else if (item.Rate == i + 0.5)
+                                                        {
+                                                            <i class="bi bi-star-half"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="bi bi-star"></i>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                    <div class="bottom-wrap">
+                                        <div class="row">
+                                            <div class="col-4 float-left">
+                                                @if (item.WithoutDiscountPrice == null
+                                                   )
+                                                {
+                                                    <p class="font-italic" style="font-size:16px;margin-top:20px;text-decoration:none;font-weight:bolder;color:green;" id="fakePrice">@item.DiscountPrice TL</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="font-italic" id="fakePrice">@item.WithoutDiscountPrice TL</p>
+                                                    <p class="font-italic" id="truePrice">@item.DiscountPrice TL</p>
+                                                }
+
+                                            </div>
+                                            <div class="col-8 "style="padding-left:150px; padding-right:20px;">
+                                                <div class="row">
+                                                    <div class="col-lg-6" id="buyQuick" >
+                                                        <a asp-controller="ShoppingCart" asp-action="Add"
+                                                           asp-route-id="@item.Id"
+                                                           asp-route-categoryName="@item.Category.CategoryName"
+                                                           asp-route-brandName="@item.Brand.BrandName"
+                                                           asp-route-productName="@item.ProductName"
+                                                           asp-route-imageUrl="@item.ProductImages.Select(x=>x.ImageUrl).FirstOrDefault()"
+                                                           asp-route-withoutDiscountPrice="@item.WithoutDiscountPrice"
+                                                           asp-route-discountPrice="@item.DiscountPrice"
+                                                           asp-route-rate="@item.Rate"
+                                                           class="btn float-right btnCart" data-abc="true" data-toggle="tooltip" data-placement="right" title="Sepete Ekle" style="width:150px;"> Sepete </a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(".btnCart").click(function () {
+            var id = $(this).attr("id");
+            $.ajax({
+                type: "GET",
+                dataType: "JSON",
+                url: "@Url.Action("Add","ShoppingCart")/" + id,
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (result) {
+                    console.log(result);
+                }
+            });
+        });
+    </script>
+}
+

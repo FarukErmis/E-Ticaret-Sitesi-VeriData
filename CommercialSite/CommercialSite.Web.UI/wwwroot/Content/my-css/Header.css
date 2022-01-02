@@ -1,0 +1,90 @@
+﻿#mainNavbar {
+    background-color: #310636;
+}
+
+
+#titleMain {
+    font-size: 34px;
+    color: #32b87b;
+    font-weight: bolder;
+    text-shadow: 2px 1px 16px #48e008;
+    margin-left: 100px;
+    margin-right: 50px;
+}
+
+#mainSearch input {
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid white;
+}
+
+#mainSearch button {
+    background-color: #310636;
+    font-size: 15px;
+}
+
+    #mainSearch button:hover {
+        background-color: #310636;
+        color: wheat;
+        border: 2px double white;
+        transition: 0.8s;
+    }
+
+#mainListUnlogin li a {
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+    #mainListUnlogin li a:hover {
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff;
+    font-size: 20px;
+    transition: 0.8s;
+}
+
+
+ul#mainListUnlogin .nav-item::after {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 3px;
+    background: #48e008;
+    transition: 0.8s;
+}
+
+ul#mainListUnlogin .nav-item:hover::after {
+    width: 100%;
+}
+
+#row {
+    padding: 1px;
+}
+
+#row1 {
+    padding: 10px;
+    background-color: #b3b84f;
+}
+
+#row2 {
+    padding: 10px;
+    background-color: #54bc6c;
+}
+
+#row3 {
+    padding: 10px;
+    background-color: #309a7c;
+}
+
+#row4 {
+    padding: 10px;
+    background-color: #6c1795;
+}

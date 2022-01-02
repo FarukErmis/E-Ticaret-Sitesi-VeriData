@@ -1,0 +1,188 @@
+﻿@model AccountInfoVM
+@{
+    ViewBag.Title = "InfoPanel";
+}
+<link href="~/Content/my-css/ShoppingCart.css" rel="stylesheet" />
+<link href="~/Content/my-css/PanelInfo.css" rel="stylesheet" />
+<script src="~/Content/jquery/jquery.js"></script>
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-4 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Kullanıcı Bilgi</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="@Model.FirstName" value="" readonly="readonly"></div>
+                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="@Model.Surname" readonly="readonly"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="@Model.Email" value="" readonly="readonly"></div>
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mt-5 text-center">
+                            <a class="btn btn-primary" type="button" asp-controller="AccountInfo" asp-action="UpdateUser" asp-route-id="@Model.UserId">Profil Düzenle</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mt-5 text-center">
+                            <a class="btn btn-danger" type="button" asp-controller="AccountInfo" asp-action="UpdatePassword" asp-route-id="@Model.UserId">Şifre Değiştir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (@Model.BillingAdress != null)
+        {
+            <div class="col-md-4 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Teslimat Adres</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="labels">Ad</label>
+                            <input type="text" class="form-control" placeholder="@Model.BillingFirstName" value="" readonly="readonly">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Soyad</label>
+                            <input type="text" class="form-control" value="" placeholder="@Model.BillingSurName" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="labels">Ülke</label>
+                            <input type="text" class="form-control" placeholder="@Model.BillingCountry" value="" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="labels">Şehir</label>
+                            <input type="text" class="form-control" placeholder="@Model.BillingLocation" value="" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="labels">İlçe</label>
+                            <input type="text" class="form-control" placeholder="@Model.BillingSubLocation" value="" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="labels">Adres</label>
+                            <input type="text" class="form-control" placeholder="@Model.BillingAdress" value="" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mt-5 text-center">
+                                <a class="btn btn-primary" type="button" asp-controller="AccountInfo" asp-action="UpdateBilling" asp-route-id="@Model.BillingId">Düzenle</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mt-5 text-center">
+                                <a class="btn btn-danger" type="button" asp-controller="AccountInfo" asp-action="DeleteBilling" asp-route-id="@Model.BillingId">Sil</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-4 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Teslimat Adres</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Ad</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                        <div class="col-md-6"><label class="labels">Soyad</label><input type="text" class="form-control" value="" placeholder="Empty" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Ülke</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Şehir</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">İlçe</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Adres</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="mt-5 text-center"><a class="btn btn-primary " type="button"asp-controller="AccountInfo" asp-action="InsertBilling">Ekle</a></div>
+                </div>
+            </div>
+        }
+
+        @if (@Model.ShippingAdress != null)
+        {
+            <div class="col-md-4 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Fatura Adres</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Ad</label><input type="text" class="form-control" placeholder="@Model.ShippingFirstName" value="" readonly="readonly"></div>
+                        <div class="col-md-6"><label class="labels">Soyad</label><input type="text" class="form-control" value="" placeholder="@Model.ShippingSurName" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Ülke</label><input type="text" class="form-control" placeholder="@Model.ShippingCountry" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Şehir</label><input type="text" class="form-control" placeholder="@Model.ShippingLocation" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">İlçe</label><input type="text" class="form-control" placeholder="@Model.ShippingSubLocation" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Adres</label><input type="text" class="form-control" placeholder="@Model.ShippingAdress" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mt-5 text-center">
+                                <a class="btn btn-primary" type="button" asp-controller="AccountInfo" asp-action="UpdateShipping" asp-route-id="@Model.ShippingId">Düzenle</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mt-5 text-center">
+                                <a class="btn btn-danger" type="button" asp-controller="AccountInfo" asp-action="DeleteShipping" asp-route-id="@Model.ShippingId">Sil</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-4 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Teslimat Adres</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Ad</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                        <div class="col-md-6"><label class="labels">Soyad</label><input type="text" class="form-control" value="" placeholder="Empty" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Ülke</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Şehir</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">İlçe</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Adres</label><input type="text" class="form-control" placeholder="Empty" value="" readonly="readonly"></div>
+                    </div>
+                    <div class="mt-5 text-center"><a class="btn btn-primary" type="button"asp-controller="AccountInfo" asp-action="InsertShipping">Ekle</a></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

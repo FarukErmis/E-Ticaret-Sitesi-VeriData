@@ -1,0 +1,39 @@
+﻿@model LoginViewModel
+<body>
+    <section>
+        <div class="container" style="border:5px solid #d2cbcb; padding-top:100px; padding-bottom:100px; background-color:antiquewhite;">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h1>Giriş Yap!</h1>
+                        </div>
+                    </div>
+                    <div class="login-register-form">
+                        <form asp-controller="Account" asp-action="Login" method="post">
+                            @TempData["Message"]
+                            <div class="row">
+                                <div class="row align-items-center col-12">
+                                    <div class="col mt-4">
+                                        <input asp-for="Email" class="form-control" type="text" placeholder="Email" />
+                                    </div>
+                                </div>
+                                <div class="row align-items-center col-sm-12">
+                                    <div class="col mt-4">
+                                        <input asp-for="Password" class="form-control" type="password" placeholder="Password" />
+                                    </div>
+                                </div>
+                                <div class="col-6 mt-10 text-left" style="padding-top:20px;">
+                                    <button type="submit" class="button btn-primary button-primary button-outline">Giriş Yap</button>
+                                </div>
+                                <div class="col-6 mt-10 text-right" style="padding-right: 70px; padding-top: 20px;">
+                                    <a asp-controller="Home" asp-action="Index" asp-area="" class="button button-primary button-outline">Anasayfaya Dön</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

@@ -1,0 +1,54 @@
+﻿@model List<ShipmentInfoViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_YöneticiLayout.cshtml";
+}
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">List <span>/ Shipment Infos</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+                    <a asp-controller="ShipmentInfo" asp-action="Insert" class="btn btn-primary">Yeni Kayıt</a>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                <th>Shipment Name</th>
+                                <th>Oluşturulma Tarihi</th>
+                                <th>####</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (ShipmentInfoViewModel item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ShipmentName</td>
+                                    <td>@item.CreatedDate</td>
+                                    <td>
+                                        <a asp-controller="ShipmentInfo" asp-action="Update" asp-route-id="@item.Id" class="btn">Update</a>     
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/admin/assets/js/plugins/datatables/datatables.min.js"></script>
+    <script src="~/admin/assets/js/plugins/datatables/datatables.active.js"></script>
+}
+

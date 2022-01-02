@@ -1,0 +1,548 @@
+﻿#a img {
+    height: 100px;
+}
+
+#myCarousel .carousel-item .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed
+}
+
+#myCarousel h4 {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: #FFF;
+    line-height: 100%;
+    letter-spacing: 0.5px;
+    font-weight: 600
+}
+
+#myCarousel p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #d5d5d5
+}
+
+#myCarousel .carousel-item a {
+    background: #FF0000;
+    font-size: 14px;
+    color: #FFF;
+    padding: 13px 32px;
+    display: inline-block
+}
+
+    #myCarousel .carousel-item a:hover {
+        background: #FF0000;
+        text-decoration: none
+    }
+
+#myCarousel .carousel-item h4 {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft
+}
+
+#myCarousel .carousel-item p {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight
+}
+
+#myCarousel .carousel-item a {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp
+}
+
+#myCarousel .carousel-item .mask img {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+    display: block;
+    height: auto;
+    max-width: 100%
+}
+
+#myCarousel h4,
+#myCarousel p,
+#myCarousel a,
+#myCarousel .carousel-item .mask img {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+#myCarousel .container {
+    max-width: 1430px
+}
+
+#myCarousel .carousel-item {
+    height: 100%;
+    min-height: 550px
+}
+
+#myCarousel {
+    position: relative;
+    z-index: 1;
+    background: #000;
+    background-size: cover
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    height: 40px;
+    width: 40px;
+    padding: 12px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    background-color: #FF0000
+}
+
+.carousel-item {
+    position: relative;
+    display: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    transition: -webkit-transform .6s ease;
+    transition: transform .6s ease;
+    transition: transform .6s ease, -webkit-transform .6s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px
+}
+
+.carousel-fade .carousel-item {
+    opacity: 0;
+    -webkit-transition-duration: .6s;
+    transition-duration: .6s;
+    -webkit-transition-property: opacity;
+    transition-property: opacity
+}
+
+    .carousel-fade .carousel-item-next.carousel-item-left,
+    .carousel-fade .carousel-item-prev.carousel-item-right,
+    .carousel-fade .carousel-item.active {
+        opacity: 1
+    }
+
+.carousel-fade .carousel-item-left.active,
+.carousel-fade .carousel-item-right.active {
+    opacity: 0
+}
+
+.carousel-fade .carousel-item-left.active,
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item-prev.active,
+.carousel-fade .carousel-item.active {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0)
+}
+
+@supports (transform-style:preserve-3d) {
+
+    .carousel-fade .carousel-item-left.active,
+    .carousel-fade .carousel-item-next,
+    .carousel-fade .carousel-item-prev,
+    .carousel-fade .carousel-item-prev.active,
+    .carousel-fade .carousel-item.active {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+.carousel-fade .carousel-item-left.active,
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item-prev.active,
+.carousel-fade .carousel-item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+}
+
+@-webkit-keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp
+}
+
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        visibility: visible
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        visibility: visible
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+.slideInRight {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight
+}
+
+
+
+#dropdownContainer {
+    margin-top: 40px;
+}
+
+    #dropdownContainer div a.nav-link {
+        border-right: 1px solid rgba(153, 153, 153, 0.3);
+        padding-right: 15px;
+        margin-right: 25px;
+        text-align: center;
+    }
+
+    #dropdownContainer div a.nav-link {
+        font-size: 18px;
+        color: #000;
+    }
+
+        #dropdownContainer div a.nav-link:hover {
+            border-right: 2px solid red;
+        }
+
+        #dropdownContainer div a.nav-link:focus {
+            color: #6c1795;
+        }
+
+    #dropdownContainer .dropdown-menu a {
+        font-size: 14px;
+        color: #440808;
+    }
+
+        #dropdownContainer .dropdown-menu a:hover {
+            background-color: #857a7a;
+            color: white;
+            transition: 0.4s;
+        }
+
+.dropdown-menu {
+    padding-top: 0px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1
+}
+
+    .dropdown-menu a {
+        color: black;
+        text-decoration: none;
+        display: block
+    }
+
+        .dropdown-menu a:hover {
+            background-color: #ddd
+        }
+
+.dropdown:hover .dropdown-menu {
+    display: block
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #097ee8
+}
+
+.dropdown-menu.show {
+    margin-top: 10px;
+    padding: 2px 0px 2px 0px;
+}
+
+a#navbardrop {
+    padding-bottom: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background-color: #eeeeee
+}
+
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px
+}
+
+a {
+    text-decoration: none !important
+}
+
+.card-product-list,
+.card-product-grid {
+    margin-bottom: 0
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.10rem;
+    margin-top: 10px
+}
+
+.card-product-grid:hover {
+    -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+    box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+    -webkit-transition: .3s;
+    transition: .3s
+}
+
+.card-product-grid .img-wrap {
+    border-radius: 0.2rem 0.2rem 0 0;
+    height: 220px
+}
+
+.card .img-wrap {
+    overflow: hidden
+}
+
+.card-lg .img-wrap {
+    height: 280px
+}
+
+.card-product-grid .img-wrap {
+    border-radius: 0.2rem 0.2rem 0 0;
+    height: 228px;
+    padding: 16px
+}
+
+[class*='card-product'] .img-wrap img {
+    height: 100%;
+    max-width: 100%;
+    width: auto;
+    display: inline-block;
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+.img-wrap {
+    text-align: center;
+    display: block
+}
+
+.card-product-grid .info-wrap {
+    overflow: hidden;
+    padding: 18px 20px
+}
+
+[class*='card-product'] a.title {
+    color: #212529;
+    display: block
+}
+
+.rating-stars {
+    display: inline-block;
+    vertical-align: middle;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    white-space: nowrap;
+    clear: both
+}
+
+    .rating-stars li.stars-active {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden
+    }
+
+    .rating-stars li {
+        display: block;
+        text-overflow: clip;
+        white-space: nowrap;
+        z-index: 1
+    }
+
+.card-product-grid .bottom-wrap {
+    padding: 18px;
+    border-top: 1px solid #e4e4e4
+}
+
+
+.fa {
+    color: #FF5722
+}
+
+#productList div img {
+    margin: 2px 0px 0px 40px;
+    height: 250px;
+    width: 270px;
+}
+
+ul#data-slide {
+    bottom: -20px;
+}
+
+    ul#data-slide li {
+        background-color: #3e3535;
+    }
+
+
+#productRate i {
+    color: red;
+}
+
+#productTitle a {
+    font-size: 14px;
+}
+
+.card-product-grid .info-wrap {
+    padding: 4px 10px;
+}
+
+.card-product-grid .bottom-wrap {
+    padding: 10px;
+    border-top: 1px solid #2256ad;
+}
+
+p#fakePrice {
+    color: red;
+    text-decoration: line-through;
+    font-style: italic;
+    font-size: 13px;
+}
+
+p#truePrice {
+    color: #289f0d;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#throwCart a {
+    background-color: #540d5d;
+    color: white;
+    padding: 0px;
+    width: 100px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#buyQuick a {
+    padding: 0px;
+    width: 100px;
+    height: 30px;
+    background-color: #540d5d;
+    color: white;
+}
+
+#shippingDetail {
+    margin-left: 30px;
+    font-size: 20px;
+    color: blue;
+    font-style: italic;
+}
+
+#buyQuick a:hover,
+#throwCart a:hover {
+    background-color: #130515;
+    font-weight: bolder;
+}

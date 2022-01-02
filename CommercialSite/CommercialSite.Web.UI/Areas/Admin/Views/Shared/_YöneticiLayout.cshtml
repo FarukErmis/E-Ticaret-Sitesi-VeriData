@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] | Tekno Havuz Yöneticisi</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="@ViewData["Description"]">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="~/Content/admin/assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/css/vendor/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/css/vendor/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/css/vendor/cryptocurrency-icons.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/css/plugins/plugins.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/css/helper.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/css/style.css">
+    <link id="cus-style" rel="stylesheet" href="~/Content/admin/assets/css/style-primary.css">
+</head>
+<body>
+    <div class="row col-12">
+        <div class="col-lg-1">
+            <div class="header-section">
+                <div class="container-fluid">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="header-right flex-grow-1 col-auto">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-auto">
+                                    <ul class="header-notification-area">
+                                        <li class="adomx-dropdown col-auto">
+                                            <a class="toggle" href="#">
+                                                <span class="user">
+                                                    @*<span class="avatar">
+                                                        <img src="@User.Claims.FirstOrDefault(c => c.Type.EndsWith("Image")).Value.ToString()" alt="">
+                                                        <span class="status"></span>
+                                                    </span>
+                                                    <span class="name">@User.Claims.FirstOrDefault(c => c.Type.EndsWith("emailaddress")).Value</span>*@
+                                                </span>
+                                            </a>
+                                            <div class="adomx-dropdown-menu dropdown-menu-user">
+                                                <div class="body">
+                                                    <ul>
+                                                        <li><a asp-controller="Account" asp-action="Logout" asp-area=""><i class="zmdi zmdi-account"></i>Çıkış Yap</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="side-header show" style="background-color:#dee2e6">
+                <button class="side-header-close"><i class="zmdi zmdi-close"></i></button>
+                <div class="side-header-inner custom-scroll">
+                    <nav class="side-header-menu" id="side-header-menu">
+                        <ul>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index"><i class="ti-home"></i> <span>Anasayfa</span></a></li>
+                            <li><a asp-area="Admin" asp-controller="Brand" asp-action="Index"><i class="ti-marker"></i> <span>Markalar</span></a></li>
+                            <li><a asp-area="Admin" asp-controller="Category" asp-action="Index"><i class="ti-marker"></i> <span>Kategoriler</span></a></li>
+                            <li><a asp-area="Admin" asp-controller="Product" asp-action="Index"><i class="ti-marker"></i> <span>Ürünler</span></a></li>
+                            <li><a asp-area="Admin" asp-controller="ProductComment" asp-action="Index"><i class="ti-marker"></i> <span>Ürün Değerlendirmeleri</span></a></li>
+                            <li><a asp-area="Admin" asp-controller="ProductImage" asp-action="Index"><i class="ti-marker"></i> <span>Ürün Resimleri</span></a></li>
+                            <li><a asp-area="Admin" asp-controller="ProductProperty" asp-action="Index"><i class="ti-marker"></i> <span>Ürün Özellikleri</span></a></li>
+                            <li><a asp-area="Admin" asp-controller="User" asp-action="Index"><i class="ti-marker"></i> <span>Kullanıcılar</span></a></li>
+                            <li><a asp-area="Admin" asp-controller="Order" asp-action="Index"><i class="ti-marker"></i> <span>Siparişler</span></a></li>
+                            <li><a asp-area="Admin" asp-controller="ShipmentInfo" asp-action="Index"><i class="ti-marker"></i> <span>Kargolar</span></a></li>
+                            <li><a asp-area="" asp-controller="Account" asp-action="Logout"><i class="ti-marker"></i> <span>Oturumu Kapat</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            @RenderBody()
+            <div class="footer-section">
+                <div class="container-fluid">
+                    <div class="footer-copyright text-center">
+                        <p class="text-body-light">2021 &copy; Tekno Havuz</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        
+        
+    </div>
+    <script src="~/Content/admin/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="~/Content/admin/assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/admin/assets/js/vendor/popper.min.js"></script>
+    <script src="~/Content/admin/assets/js/vendor/bootstrap.min.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/tippy4.min.js.js"></script>
+    <script src="~/Content/admin/assets/js/main.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/moment/moment.min.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/daterangepicker/daterangepicker.active.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/chartjs/Chart.min.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/chartjs/chartjs.active.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/vmap/jquery.vmap.min.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/vmap/maps/jquery.vmap.world.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/vmap/maps/samples/jquery.vmap.sampledata.js"></script>
+    <script src="~/Content/admin/assets/js/plugins/vmap/vmap.active.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,291 @@
+﻿.hat-cek {
+    border: 1px solid #c7c6c6;
+    margin: 50px 0 0 0 30px;
+}
+
+
+
+
+span.carousel-control-next-icon {
+    background-color: #808080;
+}
+
+.carousel-control-prev-icon {
+    background-color: #808080;
+}
+
+.slider-img img {
+    height: 100%;
+    width: 100%;
+}
+
+.slider-passing li {
+    background-color: #808080;
+}
+
+.background-detail {
+    background-color: #efeaea;
+}
+
+.product-title {
+    margin: 10px 10px 10px 10px;
+    font-family: Dubai;
+    font-size: 22px;
+}
+
+.comment-rate span {
+    color: red;
+}
+
+.comment-rate i {
+    color: black;
+    font-weight: 400;
+    font-size: 17px;
+    text-decoration: unset;
+}
+
+.comment-rate i {
+    color: #564f4f;
+    font-weight: 400;
+    font-size: 17px;
+    text-decoration: unset;
+}
+
+    .comment-rate i:hover {
+        color: black;
+    }
+
+.comment-rate a:hover {
+    text-decoration: none;
+}
+
+.comment-rate {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.none-underline:hover {
+    text-decoration: none;
+}
+
+.fake-price {
+    color: red;
+    text-decoration: line-through;
+    width: 100px;
+    margin-right: 0px;
+}
+
+.discount-price {
+    background-color: #32b87b;
+    padding: 20px 0px 20px 0px;
+    border-radius: 70px;
+}
+
+pre.discount {
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    width: max-content;
+    background-color: #288e09;
+}
+
+p.quantity-p {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 0 5px 0 5px;
+    color: black;
+    font-size: 18px;
+    border: 3px solid #4e2a66;
+    border-radius: 5px;
+}
+
+    p.quantity-p:hover {
+        background-color: #4e2a66;
+        color: white;
+    }
+
+input.quantity-control {
+    margin-top: 16px;
+    width: 50px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+    input.quantity-control:hover {
+        border: 3px solid #4e2a66;
+    }
+
+a.btn-add-cart {
+    margin-top: 15px;
+    text-align: center;
+    background-color: #fb1610;
+    color: white;
+    padding: 0px;
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+    button.btn-add-cart:hover {
+        color: white;
+        background-color: #9f0808;
+    }
+
+h6.shipping-date {
+    margin-left: 20px;
+    margin-top: 5px;
+    width: 700px;
+    color: #32b87b;
+}
+
+#product-property {
+    margin-top: 10px;
+    margin: 10px -10px 5px -10px;
+    background-color: white;
+    border: 2px solid #c6c0c0
+}
+
+h6 {
+    width: 100%;
+}
+
+h6 a {
+    margin-top: 3px;
+    margin-left: 3px;
+    color: #808080;
+    font-size: 15px;
+    font-style: italic;
+}
+
+h6 a:hover {
+    color:#6c6666;
+    text-decoration:none;
+}
+
+span.bi-arrow-down {
+    color: #808080;
+}
+
+.product-feature {
+    width: 50%;
+    float: left;
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+    .product-feature span {
+        color: #6c6666;
+        font-weight: normal;
+    }
+
+.center-buttons {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    padding: 5px;
+    border: 2px solid #808080;
+}
+
+.center-buttons {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    padding: 5px;
+    border: 2px solid #808080;
+}
+
+.btnsection {
+    height: 50px;
+    font-size: 20px;
+    width: 20%;
+    border-width: 4px;
+    margin: 0 -2px 0 -2px;
+    background-color: #808080;
+    color: white;
+}
+
+    .btnsection:focus {
+        background-color: white;
+        color: black;
+        transition: 0.5s;
+    }
+
+
+.product-features-title {
+    width: 30%;
+    float: left;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.product-features-explanation {
+    width: 70%;
+    color: #6c6666;
+    font-weight: normal;
+}
+
+div#comments {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.media {
+    border-radius: 30px;
+    background-color: #e8e1e1
+}
+
+img.align-self-center.mr-3 {
+    width: 60px;
+}
+
+span.comment-date {
+    margin-left: 10px;
+    font-size: 13px;
+    color: #0b4d67;
+    font-style: italic;
+}
+
+
+h6 span.bi-star-fill {
+    margin-left: 2px;
+    font-size: 13px;
+    color: #ff5e00;
+}
+
+h6 span.bi-star-half {
+    margin-left: 2px;
+    font-size: 13px;
+    color: #ff5e00
+}
+
+h6 span.bi-star {
+    margin-left: 2px;
+    font-size: 13px;
+    color: #ff5e00
+}
+
+a span.bi-hand-thumbs-up {
+    color: green;
+}
+
+a span.bi-hand-thumbs-down {
+    color: red;
+}
+
+.installment-choice {
+    text-align: center;
+    width: 100%;
+}
+
+div.installment-choice img {
+    width: 100px;
+    height: 100px;
+}
