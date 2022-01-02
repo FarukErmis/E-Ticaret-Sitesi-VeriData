@@ -11,5 +11,6 @@
     Password = 123
     
     
-#What Includes: Admin panelinde çoğu datayı güncelleyin, silin, ekleyin veya aktif edin. 
+#What Includes: 
+                Admin panelinde çoğu datayı güncelleyin, silin, ekleyin veya aktif edin. 
                 User: Kayıt ol, Şifremi Değiştir, Giriş Yap, Ürünleri Sepete Ekle, Ürünleri favori Listesine Ekle, Ürünleri Almadan önce Fatura adresi ve teslimat adresi gir, User panelinde Teslimat Adresi, Fatura Adresi, Kullanıcı Adı Soyadı belirle. Geçmişte almış olduğunuz ürünleri Siparişlerim sayfasında öğren.
